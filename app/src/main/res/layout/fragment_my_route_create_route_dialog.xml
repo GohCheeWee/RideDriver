@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/actionbar"
+        android:layout_height="?actionBarSize"
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/create_route_dialog_button"
+        android:layout_below="@id/action_bar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:id="@+id/create_route_dialog_pick_up_layout"
+            android:orientation="horizontal"
+            android:background="@color/background_white"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:padding="5dp"
+                android:src="@drawable/start_point_icon"
+                android:contentDescription="@string/activitiy_home_my_route"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:gravity="bottom"
+                    android:text="@string/create_route_dialog_label_start_point"
+                    android:fontFamily="@string/font_family_condensed"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:hint="@string/create_route_dialog_pick_up"
+                    android:gravity="top"
+                    android:id="@+id/create_route_dialog_pick_up"
+                    android:textColor="@color/black"
+                    android:fontFamily="@string/font_family_condensed"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:id="@+id/create_route_dialog_drop_off_layout"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:padding="5dp"
+                android:src="@drawable/create_route_dialog_end_point_icon"
+                android:contentDescription="@string/activitiy_home_my_route"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:gravity="bottom"
+                    android:text="@string/create_route_dialog_label_end_point"
+                    android:fontFamily="@string/font_family_condensed"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:hint="@string/create_route_dialog_drop_off"
+                    android:gravity="top"
+                    android:id="@+id/create_route_dialog_drop_off"
+                    android:textColor="@color/black"
+                    android:fontFamily="@string/font_family_condensed"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/disable_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:id="@+id/create_route_dialog_date_layout"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:padding="5dp"
+                android:src="@drawable/create_my_route_date_icon"
+                android:contentDescription="@string/activitiy_home_my_route"
+                android:layout_height="match_parent"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:padding="5dp"
+                android:id="@+id/create_route_dialog_date"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family_condensed"/>
+
+            </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/disable_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:id="@+id/create_route_dialog_time_layout"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:padding="5dp"
+                android:src="@drawable/create_my_route_time_icon"
+                android:contentDescription="@string/activitiy_home_my_route"
+                android:layout_height="match_parent"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:padding="5dp"
+                android:gravity="center_vertical"
+                android:id="@+id/create_route_dialog_time"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family_condensed"/>
+
+        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:id="@+id/create_route_dialog_note_layout"
+                android:layout_height="?actionBarSize">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:padding="5dp"
+                    android:src="@drawable/activity_home_note"
+                    android:contentDescription="@string/activitiy_home_my_route"
+                    android:layout_height="match_parent"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/create_route_dialog_note"
+                    android:hint="@string/activity_home_note"
+                    android:textColor="@color/black"
+                    android:fontFamily="@string/font_family_condensed"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:background="@color/white"
+            android:id="@+id/create_route_dialog_label_advance_setting_layout"
+            android:layout_height="?actionBarSize">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:fontFamily="@string/font_family_condensed"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/create_my_route_dialog_label_advance_setting"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:contentDescription="@string/activitiy_home_my_route"
+                android:id="@+id/create_route_dialog_advance_seting_icon"
+                android:src="@drawable/activity_edit_profile_arrow_right_icon"/>
+
+        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:id="@+id/create_route_dialog_advance_setting_layout"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="60dp">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="13sp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/create_route_dialog_label_seat"
+                        android:text="@string/create_my_route_dialog_label_seat_available"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family_condensed"/>
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/create_route_dialog_seat"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@color/disable_color"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:textSize="13sp"
+                        android:gravity="center_vertical"
+                        android:text="@string/create_my_route_dialog_label_gender"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family_condensed"/>
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/create_route_dialog_gender"
+                        android:buttonTint="@color/red"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/font_family_condensed"
+                    android:textColor="@color/black"
+                    android:text="@string/create_route_dialog_label_pick_up_distance"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:id="@+id/create_route_dialog_pick_up_distance"
+                    android:fontFamily="@string/font_family_condensed" />
+
+            </LinearLayout>
+
+            <com.xw.repo.BubbleSeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/create_route_dialog_pick_up_distance_seek_bar"
+                app:bsb_bubble_color="@color/red"
+                app:bsb_bubble_text_color="@color/white"
+                app:bsb_max="5"
+                app:bsb_min="1"
+                app:bsb_second_track_color="@color/red"
+                app:bsb_section_count="4"
+                app:bsb_section_text_position="bottom_sides"
+                app:bsb_show_progress_in_float="true"
+                app:bsb_show_section_mark="true"
+                app:bsb_show_section_text="true"
+                app:bsb_show_thumb_text="true"
+                app:bsb_track_color="@color/disable_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/font_family_condensed"
+                    android:textColor="@color/black"
+                    android:text="@string/create_route_dialog_label_drop_off_distance"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:id="@+id/create_route_dialog_drop_off_distance"
+                    android:fontFamily="@string/font_family_condensed" />
+
+            </LinearLayout>
+
+            <com.xw.repo.BubbleSeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/create_route_dialog_drop_off_distance_seek_bar"
+                app:bsb_bubble_color="@color/red"
+                app:bsb_bubble_text_color="@color/white"
+                app:bsb_max="5"
+                app:bsb_min="1"
+                app:bsb_second_track_color="@color/red"
+                app:bsb_section_count="4"
+                app:bsb_section_text_position="bottom_sides"
+                app:bsb_show_progress_in_float="true"
+                app:bsb_show_section_mark="true"
+                app:bsb_show_section_text="true"
+                app:bsb_show_thumb_text="true"
+                app:bsb_track_color="@color/disable_color"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/create_route_dialog_progress_bar"
+        android:indeterminateBehavior="repeat"
+        android:visibility="gone"
+        android:indeterminateTintMode="src_in"
+        android:indeterminateTint="@color/red"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:layout_marginTop="?actionBarSize"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:id="@+id/create_route_dialog_button"
+        android:background="@drawable/activity_login_custom_button"
+        android:text="@string/create_route_dialog_create_route"/>
+
+</RelativeLayout>

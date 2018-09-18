@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/actionbar"
+            android:layout_width="match_parent"
+            android:id="@+id/actionBar"
+            android:layout_height="?actionBarSize"/>
+
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:id="@+id/activity_home_tab_layout"
+            app:tabIndicatorColor="@color/red"
+            app:itemTextAppearance="@string/cursive"
+            android:layout_below="@id/actionBar"
+            app:tabIndicatorHeight="3dp"
+
+            android:layout_height="wrap_content"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/activity_home_view_pager"
+            android:layout_width="match_parent"
+            android:layout_below="@id/activity_home_tab_layout"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:id="@+id/activity_home_update_profile_layout"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="15dp"
+                android:background="@drawable/activity_edit_profile_custom_edit_text"
+                android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:src="@drawable/acitivty_home_warning_icon"
+                android:contentDescription="@string/activitiy_main"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/red"
+                android:padding="5dp"
+                android:textSize="14sp"
+                android:fontFamily="@string/font_family_condensed"
+                android:text="@string/activitiy_main_label_update_profile"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:padding="6dp"
+                android:fontFamily="@string/font_family_condensed"
+                android:text="@string/activitiy_main_text_update_profile"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:padding="6dp"
+                    android:fontFamily="@string/font_family_condensed"
+                    android:text="@string/activitiy_main_text2_update_profile"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/activity_login_custom_button"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/activity_home_update_profile_button"
+                android:text="@string/activitiy_main_view_profile_button"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start"
+        app:itemTextColor="@color/grey"
+        app:itemTextAppearance="@string/font_family_condensed"
+        app:headerLayout="@layout/activity_home_nav_header"
+        android:id="@+id/activity_home_navigation_view">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

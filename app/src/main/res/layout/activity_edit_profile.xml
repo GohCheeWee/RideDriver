@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_white"
+    android:id="@+id/activity_edit_profile_main_layout"
+    tools:context=".registration.profile.editProfile.EditProfileActivity">
+
+    <include
+        layout="@layout/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/transparent_black"
+                    android:text="@string/activity_edit_profile_label_name"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:id="@+id/activity_edit_profile_name"
+                    android:textColor="@color/transparent_black"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/transparent_black"
+                    android:text="@string/activity_edit_profile_label_email"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:id="@+id/activity_edit_profile_email"
+                    android:textColor="@color/transparent_black"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/transparent_black"
+                    android:text="@string/activity_edit_profile_label_phone"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:id="@+id/activity_edit_profile_phone"
+                    android:textColor="@color/transparent_black"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/transparent_black"
+                    android:text="@string/activity_edit_profile_label_gender"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:id="@+id/activity_edit_profile_gender"
+                    android:textColor="@color/transparent_black"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="80dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="16sp"
+                    android:id="@+id/activity_edit_profile_label_verification"
+                    android:text="@string/activity_edit_profile_label_verification"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/transparent_black"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="12sp"
+                    android:layout_below="@id/activity_edit_profile_label_verification"
+                    android:id="@+id/activity_edit_profile_label_upload_1"
+                    android:text="@string/activity_edit_profile_label_upload_1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/transparent_black"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="12sp"
+                    android:layout_below="@id/activity_edit_profile_label_upload_1"
+                    android:id="@+id/activity_edit_profile_label_upload_2"
+                    android:text="@string/activity_edit_profile_label_upload_2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textSize="13sp"
+                    android:id="@+id/activity_edit_profile_status"
+                    android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/activity_edit_profile_custom_text_view_background"
+                    android:text="@string/activity_edit_profile_label_unverified"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:id="@+id/activity_edit_profile_profile_picture_layout"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="@string/activity_edit_profile_label_profile_picture"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:layout_centerInParent="true"
+                        android:layout_toStartOf="@id/activity_edit_profile_profile_picture_arrow_right_icon"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:id="@+id/activity_edit_profile_profile_picture_status_icon"
+                        android:src="@drawable/activity_edit_profile_upload_icon"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/activity_edit_profile_profile_picture_arrow_right_icon"
+                        android:src="@drawable/activity_edit_profile_arrow_right_icon"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <!--driving license-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:id="@+id/activity_edit_profile_license_layout"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="@string/activity_edit_profile_label_license"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:layout_centerInParent="true"
+                        android:layout_toStartOf="@id/activity_edit_profile_license_arrow_right_icon"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:id="@+id/activity_edit_profile_license_status_icon"
+                        android:src="@drawable/activity_edit_profile_upload_icon"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/activity_edit_profile_license_arrow_right_icon"
+                        android:src="@drawable/activity_edit_profile_arrow_right_icon"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <!--Car Picture-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:id="@+id/activity_edit_profile_car_picture_layout"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="@string/activity_edit_profile_label_car_picture"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:layout_centerInParent="true"
+                        android:layout_toStartOf="@id/activity_edit_profile_car_picture_arrow_right_icon"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:id="@+id/activity_edit_profile_car_picture_status_icon"
+                        android:src="@drawable/activity_edit_profile_upload_icon"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/activity_edit_profile_car_picture_arrow_right_icon"
+                        android:src="@drawable/activity_edit_profile_arrow_right_icon"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--label car model and make-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:text="@string/activity_edit_profile_label_car"
+                android:fontFamily="sans-serif-condensed"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:id="@+id/activity_edit_profile_car_model_layout"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:hint="@string/activity_edit_profile_label_car"
+                    android:id="@+id/activity_edit_profile_car_model"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:layout_centerInParent="true"
+                        android:layout_toStartOf="@id/activity_edit_profile_car_model_arrow_right_icon"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:id="@+id/activity_edit_profile_car_model_status_icon"
+                        android:src="@drawable/activity_edit_profile_upload_icon"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/activity_edit_profile_car_model_arrow_right_icon"
+                        android:src="@drawable/activity_edit_profile_arrow_right_icon"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <!--label vehicle number-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:text="@string/activity_edit_profile_label_vehicle_number"
+                android:fontFamily="sans-serif-condensed"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:id="@+id/activity_edit_profile_vehicle_number_layout"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:hint="@string/activity_edit_profile_hint_vehicle_number"
+                    android:id="@+id/activity_edit_profile_car_number"
+                    android:fontFamily="sans-serif-condensed"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:layout_centerInParent="true"
+                        android:layout_toStartOf="@id/activity_edit_profile_vehicle_number_arrow_right_icon"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:id="@+id/activity_edit_profile_vehicle_number_status_icon"
+                        android:src="@drawable/activity_edit_profile_upload_icon"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/activity_edit_profile_vehicle_number_arrow_right_icon"
+                        android:src="@drawable/activity_edit_profile_arrow_right_icon"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/disable_color"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/transparent_black"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/activity_edit_profile_label_sutmit_document"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:padding="5dp"
+                android:layout_height="?actionBarSize">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:padding="5dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:src="@drawable/activity_edit_profile_upload_icon"
+                        android:layout_height="30dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/activity_edit_profile_label_upload"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:padding="5dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:src="@drawable/activity_edit_profile_pending_icon"
+                        android:layout_height="30dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/activity_edit_profile_label_pending"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:padding="5dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:src="@drawable/activity_edit_profile_approved_icon"
+                        android:layout_height="30dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/activity_edit_profile_label_approved"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:padding="5dp"
+                        android:contentDescription="@string/activity_edit_profile_label_verification"
+                        android:src="@drawable/activity_edit_profile_rejected_icon"
+                        android:layout_height="30dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/activity_edit_profile_label_rejected"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

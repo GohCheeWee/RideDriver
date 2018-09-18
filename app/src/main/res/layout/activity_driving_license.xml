@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".registration.profile.editProfile.drivingLicense.DrivingLicenseActivity">
+
+    <include
+        layout="@layout/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@color/photo_background"
+        android:padding="20dp"
+        android:layout_height="250dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/activity_driving_license_image_view"
+            android:contentDescription="@string/activity_license_label_1"
+            android:src="@drawable/activity_driving_license_license_icon"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="95dp"
+            android:contentDescription="@string/activity_license_label_1"
+            android:id="@+id/activity_driving_license_camera_icon"
+            android:src="@drawable/activity_profile_camera_icon"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_license_label_1"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/grey"
+            android:text="@string/activity_license_label_1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_license_label_2"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:layout_below="@id/activity_license_label_1"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/grey"
+            android:text="@string/activity_license_label_2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_license_label_3"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/grey"
+            android:layout_below="@id/activity_license_label_2"
+            android:text="@string/activity_license_label_3"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/activity_profile_picture"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/activity_license_upload_button"
+            android:background="@drawable/activity_login_custom_button"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

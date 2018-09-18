@@ -1,0 +1,216 @@
+<resources>
+    <string name="app_name">Ride Driver</string>
+
+    <!--login activity-->
+    <string name="activity_login_hint_email">Email</string>
+    <string name="activity_login_hint_password">Password</string>
+    <string name="activity_login_sign_in_button">Sign In</string>
+    <string name="activity_login_label_before_register">Do not have an account? </string>
+    <string name="activity_login_label_register"><b>Sign up Now</b></string>
+    <string name="activity_login_label_forgot_password"><b>Forgot Password?</b></string>
+
+    <!--register activity-->
+    <string name="activity_register_editext_username">Username</string>
+    <string name="activity_register_editext_email">Email</string>
+    <string name="activity_register_editext_password">Password</string>
+    <string name="activity_register_editext_mobile">Mobile</string>
+    <string name="activity_register_editext_phone_prefix">+60</string>
+    <string name="activity_register_editext_male">Male</string>
+    <string name="activity_register_editext_female">Female</string>
+    <string name="activity_register_sign_up_button">Sign Up</string>
+
+    <!--something missing dialog-->
+    <string name="something_missing_dialog_text">Uhh...Something is missing...</string>
+    <string name="something_missing_dialog_okay">Okay</string>
+    <string name="acitivty_main_nav_header_image_view">profile icon</string>
+
+    <!--Fetch Address Intent Service-->
+    <string name="fetch_address_intent_service_not_found">Address not found</string>
+    <string name="fetch_address_intent_service_found">Address found</string>
+    <string name="fetch_address_intent_service_invalid_position">Invalid Position</string>
+    <string name="fetch_address_intent_service_service_not_found">Service not found</string>
+
+    <!--actionbar-->
+    <string name="actionbar" />
+
+    <!--activity edit profile-->
+    <string name="activity_edit_profile">Edit Profile</string>
+    <string name="activity_edit_profile_label_name">Name</string>
+    <string name="activity_edit_profile_label_email">Email</string>
+    <string name="activity_edit_profile_label_phone">Mobile</string>
+    <string name="activity_edit_profile_label_gender">Gender</string>
+
+    <string name="activity_edit_profile_label_verification">Driver Verification <b>(Required)</b></string>
+    <string name="activity_edit_profile_label_unverified">UNVERIFIED</string>
+    <string name="activity_edit_profile_label_verified">VERIFIED</string>
+    <string name="activity_edit_profile_label_upload_1">Please upload required documents.</string>
+    <string name="activity_edit_profile_label_upload_2">Get verified to start driving.</string>
+
+    <string name="activity_edit_profile_label_profile_picture">Profile Picture (Public)</string>
+    <string name="activity_edit_profile_label_license">Driving License</string>
+    <string name="activity_edit_profile_label_car_picture">Car Picture (Public)</string>
+
+    <string name="activity_edit_profile_label_car">Car make and model</string>
+    <string name="activity_edit_profile_hint_car">Select car make and model</string>
+
+    <string name="activity_edit_profile_label_vehicle_number">Vehicle registration number</string>
+    <string name="activity_edit_profile_hint_vehicle_number">Enter car registration number</string>
+
+    <string name="activity_edit_profile_label_upload">Upload</string>
+    <string name="activity_edit_profile_label_pending">Pending</string>
+    <string name="activity_edit_profile_label_approved">Approved</string>
+    <string name="activity_edit_profile_label_rejected">Rejected</string>
+    <string name="activity_edit_profile_label_sutmit_document">All submitted documents are kept private and confidential</string>
+
+    <!--prifile picture activity-->
+    <string name="activity_profile_picture_label_1">• Take a recent photo of yourself</string>
+    <string name="activity_profile_picture_label_2">• Ensure your face is visible</string>
+    <string name="activity_profile_picture_label_3">• Remove sunglasses</string>
+    <string name="activity_profile_picture_label_4">• This is your public profile</string>
+    <string name="activity_profile_picture">Upload Photo</string>
+    <string name="activity_profile_title">Profile Picture</string>
+
+    <!--profile License activity-->
+    <string name="activity_license_label_1">• Take a photo of the front driving license</string>
+    <string name="activity_license_label_2">• Ensure photo is clear with all four sides visible</string>
+    <string name="activity_license_label_3">• If driving license is defaced, take a photo with driving license AND National ID</string>
+    <string name="activity_license">Driving License</string>
+
+
+    <!--car picture activity-->
+    <string name="activity_car_picture_label_1">• Take a front photo of your car</string>
+    <string name="activity_car_picture_label_2">• Ensure license plate number is visible</string>
+    <string name="activity_car_picture_label_3">• This is your public profile</string>
+    <string name="activity_car_picture">Car Picture (Public)</string>
+
+    <!--car make/model dialog-->
+    <string name="car_model_dialog">Car Brand/Model</string>
+    <string name="car_model_dialog_label_car_brand">Please fill in your car brand</string>
+    <string name="car_model_dialog_label_car_model">Please fill in your car model</string>
+    <string name="car_model_dialog_hint_car_brand">Car Brand</string>
+    <string name="car_model_dialog_hint_car_model">Car Model</string>
+    <string name="car_model_dialog_upload">Upload</string>
+
+    <!--vehicle number dialog-->
+    <string name="car_number_dialog">Vehicle Registration Number</string>
+    <string name="car_number_dialog_plate">Please fill in your car plate number</string>
+    <string name="car_number_dialog_hint_plate">Car Plate</string>
+    <string name="car_number_dialog_plate_remark"> Car plate number must be the same with the car photo that uploaded.</string>
+    <string name="car_number_dialog_upload">Upload</string>
+
+    <!--upload image dialog-->
+    <string name="upload_image_dialog">Select a Photo</string>
+    <string name="upload_image_dialog_from_camera">Take a New Photo</string>
+    <string name="upload_image_dialog_from_gallery">Choose From Gallery</string>
+
+    <!--user_profile_dialog-->
+    <string name="user_profile_dialog_label_rating">Rating</string>
+    <string name="user_profile_dialog_label_completed_trip">Completed Trip</string>
+
+    <!--home activity-->
+    <!--navigation drawer-->
+    <string name="activity_main_open">Open</string>
+    <string name="activity_main_close">Close</string>
+    <string name="activity_main_menu_1">History</string>
+    <string name="activity_main_menu_2">Wallet</string>
+    <string name="activity_main_menu_3">Emergency</string>
+    <string name="activity_main_menu_4">Help Centre</string>
+    <string name="activitiy_main">Home</string>
+    <string name="activitiy_main_label_update_profile">Notification</string>
+    <string name="activitiy_main_text_update_profile">Please make sure you have submitted all the documentation that required.</string>
+    <string name="activitiy_main_text2_update_profile">*If submitted please give us at least two working day to verify your documentation.</string>
+    <string name="activitiy_main_view_profile_button">View Profile</string>
+
+
+    <string name="activitiy_home_my_route">My route</string>
+    <string name="activitiy_home_my_route_not_found">Create route and start hitching!</string>
+    <string name="activitiy_home_my_route_button">Create route now</string>
+
+    <string name="create_route_dialog_label_start_point">START POINT</string>
+    <string name="create_route_dialog_label_end_point">END POINT</string>
+    <string name="create_my_route_dialog_label_advance_setting">Advance Setting</string>
+    <string name="create_my_route_dialog_label_gender">Some gender passenger</string>
+    <string name="create_my_route_dialog_label_seat_available">Seat Available</string>
+    <string name="create_route_dialog_label_pick_up_distance">Pick up distance</string>
+    <string name="create_route_dialog_label_drop_off_distance">Drop off distance</string>
+    <string name="create_route_dialog_create_route">Create route</string>
+    <string name="create_route_dialog_pick_up">Where are you now?</string>
+    <string name="create_route_dialog_drop_off">Where are you going?</string>
+
+    <!--Invalid time dialog-->
+    <string name="activity_main_invalid_time_dialog_title">Warning</string>
+    <string name="activity_main_invalid_time_dialog_message">Sorry, route must be at least 10 minutes from now</string>
+    <string name="activity_main_invalid_time_dialog_button">ALRIGHT</string>
+
+    <!--note-->
+    <string name="activity_home_note">Add some note to rider</string>
+    <string name="activity_home_hint_note">Write your note here...</string>
+    <string name="activity_home_label_apply">APPLY</string>
+    <string name="activity_home_label_note">Note</string>
+
+    <!--drop off missing dialog-->
+    <string name="activity_home_missing_drop_off_dialog">Please make sure you have select your pick up and drop off point</string>
+
+    <!--delete dialog-->
+    <string name="fragment_pending_ride_detail_delete_dialog_message1">Are you sure to delete this route?</string>
+    <string name="fragment_pending_ride_detail_delete_dialog_message2">This cannot be undone.</string>
+    <string name="fragment_pending_ride_detail_delete_dialog_confirm">Confirm</string>
+    <string name="fragment_pending_ride_detail_delete_dialog_cancel">Cancel</string>
+
+    <!--match_rider_detail_list_view_layout-->
+    <string name="match_rider_detail_list_view_layout" />
+    <string name="match_rider_detail_list_view_layout_button">Accept</string>
+
+    <string name="match_rider_detail_not_found">Looking for the best suit route for you</string>
+    <string name="match_rider_detail">Matched Rider</string>
+    <!--accept rider dialog-->
+    <string name="activity_match_rider_detail_accept_dialog_label">Are you sure you  want to accept this rider?</string>
+    <string name="activity_match_rider_detail_accept_dialog_label2">Cancellation may affect your rating.</string>
+
+    <string name="fragment_confirm_ride_list_view_rider_detail"><u>View Detail</u></string>
+    <string name="fragment_confirm_ride_list_view_start_journey">Start My Journey</string>
+
+    <string name="fragment_confirm_ride_label_not_found">No matched ride yet! Create it now!</string>
+
+    <!--start route dialog-->
+    <string name="start_route_dialog_label">Start your journey now?</string>
+    <string name="start_route_dialog_label_2">Once comfirm this can be undone.</string>
+    <string name="start_route_dialog_start_button">Start</string>
+
+    <!--comeplte route dialog-->
+    <string name="completed_route_dialog_title">Congratulations</string>
+    <string name="completed_route_dialog_label">Yay! You have finished your journey successful!</string>
+    <string name="completed_route_dialog_button">Okay</string>
+
+    <!--start route activity-->
+    <string name="activity_start_route"/>
+    <string name="activity_start_route_car_type">RidePool . </string>
+    <string name="activity_start_route_label_call">Call</string>
+    <string name="activity_start_route_label_message">Message</string>
+    <string name="activity_start_route_label_more">More</string>
+    <string name="activity_start_route_button_arrived">Arrived</string>
+    <string name="activity_start_route_button_pick_up">Pick Up</string>
+    <string name="activity_start_route_button_drop_off">Drop off</string>
+
+    <!--fragment_quick_ride-->
+    <string name="fragment_quick_ride_not_found">No quick ride is found!</string>
+    <!--end of home activity-->
+
+    <!--profile activity-->
+    <string name="activity_profile_label_rating">Rating</string>
+    <string name="activity_profile_completed_ride">Completed Ride</string>
+    <string name="activity_profile_edit">Edit Profile</string>
+    <string name="activity_profile">Driver Profile</string>
+
+    <!--logout dialog-->
+    <string name="log_out_dialog_label">Warning</string>
+    <string name="log_out_dialog_text">Are you sure you want to log out?</string>
+    <string name="log_out_dialog_cancel">Cancel</string>
+    <string name="log_out_dialog_confirm">Confirm</string>
+
+    <!--create route icon-->
+    <string name="hello_blank_fragment">Driver Profile</string>
+    <!--google api key-->
+    <string name="google_api">AIzaSyDf_Maq-adGjTVUuqvfFgG-fC5HaHGVD1A</string>
+
+</resources>
