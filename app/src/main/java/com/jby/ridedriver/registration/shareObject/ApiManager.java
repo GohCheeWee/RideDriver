@@ -19,6 +19,9 @@ public class ApiManager {
     public String startRide = domain + "/ride/frontend/driver/matching/start_ride.php";
     // user profile
     public String userProfile = domain + "/ride/frontend/user/profile/user_profile.php";
+    //    image path
+    public static String profile_prefix = "http://188.166.186.198/~cheewee/ride/frontend/driver/profile/driver_profile_picture/";
+    public static String car_prefix = "http://188.166.186.198/~cheewee/ride/frontend/driver/profile/driver_car/";
 
     public String setData(ArrayList<ApiDataObject> apiDataObjectArrayList){
         String apiDataPost = "";

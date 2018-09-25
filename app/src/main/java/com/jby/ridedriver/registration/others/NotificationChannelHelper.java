@@ -55,7 +55,7 @@ public class NotificationChannelHelper extends ContextWrapper {
                 );
 
         return new NotificationCompat.Builder(getApplicationContext(), NotificationChannel)
-                .setSmallIcon(R.mipmap.ic_launcher).setTicker(title).setWhen(0)
+                .setSmallIcon(R.mipmap.ic_launcher).setTicker(title)
                 .setAutoCancel(true)
                 .setContentTitle(title)
                 .setContentIntent(resultPendingIntent)

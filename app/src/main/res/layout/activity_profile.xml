@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background_white"
+    android:id="@+id/activity_profile_parent_layout"
     tools:context=".registration.profile.ProfileActivity">
 
     <include
@@ -15,11 +16,12 @@
     
     <RelativeLayout
         android:layout_width="match_parent"
+        android:id="@+id/activity_profile_picture_parent_layout"
         android:layout_height="250dp">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="match_parent"
             android:background="@color/background"
             android:id="@+id/activity_profile_background_picture"
             android:contentDescription="@string/activity_car_picture"
@@ -48,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:fontFamily="sans-serif-condensed"
-                android:textColor="@color/grey"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:id="@+id/activity_profile_label_username"
                 android:text="@string/app_name"

@@ -57,6 +57,14 @@ public class ConfirmedRideAdapter extends BaseAdapter{
         final ConfirmedRideObject object = getItem(i);
         String date = object.getDate() + " " + object.getTime();
         String estiamte_earn = "RM " + object.getEstimate_earn();
+        String confirmRiderNumber = object.getConfirm_rider();
+        String numberOfPeople = object.getNumber_people();
+        if(confirmRiderNumber.equals(numberOfPeople))
+            viewHolder.confirm_rider_num.setTextColor(context.getResources().getColor(R.color.red));
+        else
+            viewHolder.confirm_rider_num.setTextColor(context.getResources().getColor(R.color.green));
+        String confirmRiderNum = confirmRiderNumber + "/" + numberOfPeople;
+
         status = object.getStatus();
 
         if(!status.equals("2"))
@@ -64,13 +72,14 @@ public class ConfirmedRideAdapter extends BaseAdapter{
         else
             status = "Start my journey";
 
+
         viewHolder.date.setText(date);
         viewHolder.note.setText(object.getNote());
         viewHolder.title.setText(object.getTitle());
         viewHolder.pickup.setText(object.getPick_up());
         viewHolder.dropoff.setText(object.getDrop_off());
-        viewHolder.confirm_rider_num.setText(object.getConfirm_rider());
         viewHolder.estimate_earn.setText(estiamte_earn);
+        viewHolder.confirm_rider_num.setText(confirmRiderNum);
         viewHolder.startMyJourney.setText(status);
         viewHolder.viewDetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +99,13 @@ public class ConfirmedRideAdapter extends BaseAdapter{
             }
         });
 
+        viewHolder.viewDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmRideAdaapterCallBack.viewConfirmedRider(object.getDriver_ride_id());
+            }
+        });
+
         return view;
     }
 
@@ -97,7 +113,7 @@ public class ConfirmedRideAdapter extends BaseAdapter{
 
     public interface ConfirmRideAdapterCallBack{
         void startRoute(int position);
-        void viewConfirmedRider();
+        void viewConfirmedRider(String driverRideID);
         void continueMyRoute(int position);
     }
 

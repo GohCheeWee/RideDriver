@@ -153,7 +153,6 @@
                 android:text="@string/fragment_confirm_ride_list_view_rider_detail"
                 android:textColor="@color/blue"
                 android:textSize="16sp"
-                android:textStyle="bold"
                 android:layout_toEndOf="@id/fragment_confirm_ride_list_view_confirm_rider_num"
                 android:gravity="center"
                 android:id="@+id/fragment_confirm_ride_list_view_confirm_rider_num_detail"

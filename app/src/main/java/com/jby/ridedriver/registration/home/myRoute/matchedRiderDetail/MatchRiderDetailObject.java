@@ -1,9 +1,9 @@
 package com.jby.ridedriver.registration.home.myRoute.matchedRiderDetail;
 
 public class MatchRiderDetailObject {
-    private String name, profile_picture, gender, pickup, drop_off, note, fare, payment_method, userId, routeID;
+    private String name, profile_picture, gender, pickup, drop_off, note, fare, payment_method, userId, routeID, status;
 
-    public MatchRiderDetailObject(String name, String profile_picture, String gender, String pickup, String drop_off, String note, String fare, String payment_method, String userId, String routeID) {
+    public MatchRiderDetailObject(String name, String profile_picture, String gender, String pickup, String drop_off, String note, String fare, String payment_method, String userId, String routeID, String status) {
         this.name = name;
         this.profile_picture = profile_picture;
         this.gender = gender;
@@ -14,6 +14,7 @@ public class MatchRiderDetailObject {
         this.payment_method = payment_method;
         this.userId = userId;
         this.routeID = routeID;
+        this.status = status;
     }
 
     public String getName() {
@@ -54,5 +55,9 @@ public class MatchRiderDetailObject {
 
     public String getRouteID() {
         return routeID;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

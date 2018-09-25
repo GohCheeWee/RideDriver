@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/transparent_black"
+    android:padding="20dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:elevation="5dp"
+        android:background="@drawable/fragment_my_route_custom_linear_layout_with_shadow"
+        android:padding="5dp"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/route_schedule_dialog_title"
+            android:textColor="@color/black"
+            android:fontFamily="@string/font_family_condensed"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/route_schedule_dialog_title"
+            android:id="@+id/route_schedule_dialog_divider"
+            android:background="@color/background_white"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/route_schedule_dialog_list_view"
+            android:scrollbars="none"
+            android:divider="@color/background_white"
+            android:dividerHeight="1dp"
+            android:layout_below="@id/route_schedule_dialog_divider"
+            android:layout_above="@id/route_schedule_dialog_cancel_button"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/route_schedule_dialog_cancel_button"
+            android:text="@string/route_schedule_dialog_cancel_button"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:layout_toStartOf="@id/route_schedule_dialog_confirm_button"
+            android:layout_alignParentBottom="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/route_schedule_dialog_confirm_button"
+            android:text="@string/route_schedule_dialog_confirm_button"
+            android:textColor="@color/disable_color"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:enabled="false"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
+
+
+

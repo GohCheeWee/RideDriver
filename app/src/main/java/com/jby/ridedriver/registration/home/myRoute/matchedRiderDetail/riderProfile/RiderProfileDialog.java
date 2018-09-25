@@ -83,14 +83,13 @@ public class RiderProfileDialog extends DialogFragment implements View.OnClickLi
         Bundle mArgs = getArguments();
         if (mArgs != null) {
             userID = mArgs.getString("rider_id");
-
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    getUserDetail();
+                }
+            },200);
         }
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                getUserDetail();
-            }
-        },200);
     }
 
     @Override

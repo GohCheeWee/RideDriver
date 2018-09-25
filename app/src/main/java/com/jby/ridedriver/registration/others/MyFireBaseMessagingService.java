@@ -2,8 +2,10 @@ package com.jby.ridedriver.registration.others;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -62,7 +64,7 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService {
             activityIntent = new Intent(getApplicationContext(), HomeActivity.class);
             bundle.putString("match_ride_id", matchRideId);
             activityIntent.putExtras(bundle);
-
+            lightOutScreen();
 //            notification
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 NotificationChannelHelper notificationChannelHelper = new NotificationChannelHelper(getApplicationContext());
@@ -78,6 +80,25 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService {
             Log.e(TAG, "Json Exception: " + e.getMessage());
         } catch (Exception e) {
             Log.e(TAG, "Exception: " + e.getMessage());
+        }
+    }
+
+    private void lightOutScreen(){
+        PowerManager pm = (PowerManager)getApplication().getSystemService(Context.POWER_SERVICE);
+        boolean isScreenOn = false;
+        if (pm != null) {
+            isScreenOn = pm.isInteractive();
+        }
+        Log.e("Testing", "Screen: "+isScreenOn);
+        if(!isScreenOn)
+        {
+            PowerManager.WakeLock wl = null;
+            if (pm != null) {
+                wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
+                wl.acquire(10000);
+                PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
+                wl_cpu.acquire(10000);
+            }
         }
     }
 

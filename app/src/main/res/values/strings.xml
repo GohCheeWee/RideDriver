@@ -136,6 +136,8 @@
     <string name="create_route_dialog_create_route">Create route</string>
     <string name="create_route_dialog_pick_up">Where are you now?</string>
     <string name="create_route_dialog_drop_off">Where are you going?</string>
+    <string name="create_route_dialog_route_title">What is your route title?</string>
+    <string name="create_route_dialog_label_route_title">Route Title</string>
 
     <!--Invalid time dialog-->
     <string name="activity_main_invalid_time_dialog_title">Warning</string>
@@ -147,6 +149,7 @@
     <string name="activity_home_hint_note">Write your note here...</string>
     <string name="activity_home_label_apply">APPLY</string>
     <string name="activity_home_label_note">Note</string>
+
 
     <!--drop off missing dialog-->
     <string name="activity_home_missing_drop_off_dialog">Please make sure you have select your pick up and drop off point</string>
@@ -160,6 +163,7 @@
     <!--match_rider_detail_list_view_layout-->
     <string name="match_rider_detail_list_view_layout" />
     <string name="match_rider_detail_list_view_layout_button">Accept</string>
+    <string name="match_rider_detail_list_view_layout_disable_button">Pending for response</string>
 
     <string name="match_rider_detail_not_found">Looking for the best suit route for you</string>
     <string name="match_rider_detail">Matched Rider</string>
@@ -208,9 +212,18 @@
     <string name="log_out_dialog_cancel">Cancel</string>
     <string name="log_out_dialog_confirm">Confirm</string>
 
+    <!--show confirmed rider dialog-->
+    <string name="show_confirmed_rider_dialog_title">My Rider</string>
+
     <!--create route icon-->
     <string name="hello_blank_fragment">Driver Profile</string>
     <!--google api key-->
     <string name="google_api">AIzaSyDf_Maq-adGjTVUuqvfFgG-fC5HaHGVD1A</string>
+
+    <!--Route Schedule Dialog-->
+    <string name="route_schedule_dialog_pick_up_title">My Pick Up Schedule</string>
+    <string name="route_schedule_dialog_drop_off_title">My Drop Off Schedule</string>
+    <string name="route_schedule_dialog_cancel_button">Cancel</string>
+    <string name="route_schedule_dialog_confirm_button">Confirm</string>
 
 </resources>

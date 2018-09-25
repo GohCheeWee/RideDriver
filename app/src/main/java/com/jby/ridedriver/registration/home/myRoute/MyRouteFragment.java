@@ -166,11 +166,10 @@ public class MyRouteFragment extends Fragment implements View.OnClickListener, M
                                     jsonArray.getJSONObject(i).getString("time"),
                                     jsonArray.getJSONObject(i).getString("note"),
                                     jsonArray.getJSONObject(i).getString("matchedRide"),
-                                    "My Route",
+                                    jsonArray.getJSONObject(i).getString("route_title"),
                                     setMatchRiderId(matchRiderIdArray)
                             ));
                         }
-
                     }
                 }
                 else {

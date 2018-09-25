@@ -24,7 +24,6 @@ public class MatchRiderDetailAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<MatchRiderDetailObject> matchRouteObjectArrayList;
     private MatchRiderDetailAdapterCallBack matchRiderDetailAdapterCallBack;
-    private int currentPosition;
     private static String prefix = "http://188.166.186.198/~cheewee/ride/frontend/user/profile/profile_picture/";
 
     public MatchRiderDetailAdapter(Context context, ArrayList<MatchRiderDetailObject> matchRouteObjectArrayList, MatchRiderDetailAdapterCallBack matchRiderDetailAdapterCallBack){
@@ -59,11 +58,12 @@ public class MatchRiderDetailAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        MatchRiderDetailObject object = getItem(currentPosition);
+        MatchRiderDetailObject object = getItem(i);
         String fare = "RM " + object.getFare();
         String profilePicture = prefix + object.getProfile_picture();
         String paymentMethod = object.getPayment_method();
         String note = object.getNote();
+        String status = object.getStatus();
 
         Picasso.get()
                 .load(profilePicture)
@@ -85,12 +85,23 @@ public class MatchRiderDetailAdapter extends BaseAdapter {
         if(note.equals("-")){
             note = "None";
         }
+        if(status.equals("1")){
+            viewHolder.buttonAccept.setEnabled(true);
+            viewHolder.buttonAccept.setText(context.getResources().getString(R.string.match_rider_detail_list_view_layout_button));
+            viewHolder.buttonAccept.setTextColor(context.getResources().getColor(R.color.red));
+        }
+        else{
+            viewHolder.buttonAccept.setEnabled(false);
+            viewHolder.buttonAccept.setText(context.getResources().getString(R.string.match_rider_detail_list_view_layout_disable_button));
+            viewHolder.buttonAccept.setTextColor(context.getResources().getColor(R.color.disable_color));
+        }
         viewHolder.payment_method.setText(paymentMethod);
         viewHolder.note.setText(note);
         viewHolder.name.setText(object.getName());
         viewHolder.drop_off.setText(object.getDrop_off());
         viewHolder.pickup.setText(object.getPickup());
         viewHolder.fare.setText(fare);
+
 
         viewHolder.profilePicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +110,7 @@ public class MatchRiderDetailAdapter extends BaseAdapter {
                 matchRiderDetailAdapterCallBack.viewRiderProfile(matchRouteObjectArrayList.get(i).getUserId());
             }
         });
+
         viewHolder.buttonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

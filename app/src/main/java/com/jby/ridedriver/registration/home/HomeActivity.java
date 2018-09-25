@@ -1,7 +1,9 @@
 package com.jby.ridedriver.registration.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 
 import com.jby.ridedriver.R;
 import com.jby.ridedriver.registration.home.confirmedRide.ConfirmedRideFragment;
+import com.jby.ridedriver.registration.home.confirmedRide.startRoute.StartRouteActivity;
 import com.jby.ridedriver.registration.home.myRoute.MyRouteFragment;
 import com.jby.ridedriver.registration.home.quickRide.QuickRideFragment;
 import com.jby.ridedriver.registration.others.SquareHeightLinearLayout;
@@ -90,6 +93,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //if route is on going then redirect to start route activity
+        checkingRouteStatus();
         objectInitialize();
         objectSetting();
     }
@@ -144,6 +149,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 getDriverInformation();
             }
         },200);
+    }
+
+    private void checkingRouteStatus() {
+        if(!SharedPreferenceManager.getMatchRideId(this).equals("default")) {
+            startActivity(new Intent(this, StartRouteActivity.class));
+            finish();
+        }
     }
 
     @Override

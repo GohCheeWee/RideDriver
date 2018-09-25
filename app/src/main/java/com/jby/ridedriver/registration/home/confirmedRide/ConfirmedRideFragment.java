@@ -16,6 +16,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.jby.ridedriver.R;
+import com.jby.ridedriver.registration.home.confirmedRide.dialog.ShowConfirmedRiderAdapter;
+import com.jby.ridedriver.registration.home.confirmedRide.dialog.ShowConfirmedRiderDialog;
 import com.jby.ridedriver.registration.home.confirmedRide.dialog.StartRouteDialog;
 import com.jby.ridedriver.registration.home.confirmedRide.startRoute.StartRouteActivity;
 import com.jby.ridedriver.registration.others.CustomListView;
@@ -52,6 +54,7 @@ public class ConfirmedRideFragment extends Fragment implements ConfirmedRideAdap
 
     DialogFragment dialogFragment;
     FragmentManager fm;
+    private int position = 0;
 
     public static int UPDATE_CONFIRMED_RIDE_REQUEST = 400;
 
@@ -129,11 +132,13 @@ public class ConfirmedRideFragment extends Fragment implements ConfirmedRideAdap
                                     jsonArray.getJSONObject(i).getString("drop_off_address"),
                                     jsonArray.getJSONObject(i).getString("note"),
                                     jsonArray.getJSONObject(i).getString("confirm_num"),
+                                    jsonArray.getJSONObject(i).getString("number_people"),
                                     jsonArray.getJSONObject(i).getString("estimate_fare"),
                                     jsonArray.getJSONObject(i).getString("date"),
                                     jsonArray.getJSONObject(i).getString("time"),
-                                    jsonArray.getJSONObject(i).getString("id"),
-                                    jsonArray.getJSONObject(i).getString("status")));
+                                    jsonArray.getJSONObject(i).getString("driver_ride_id"),
+                                    jsonArray.getJSONObject(i).getString("status")
+                                    ));
                         }
                     }
                 }
@@ -177,9 +182,10 @@ public class ConfirmedRideFragment extends Fragment implements ConfirmedRideAdap
     @Override
     public void startRoute(int position) {
         dialogFragment = new StartRouteDialog();
+        this.position = position;
 
         Bundle bundle = new Bundle();
-        bundle.putString("driver_ride_id", confirmedRideObjectArrayList.get(position).getId());
+        bundle.putString("driver_ride_id", confirmedRideObjectArrayList.get(position).getDriver_ride_id());
 
         dialogFragment.setArguments(bundle);
         dialogFragment.setTargetFragment(ConfirmedRideFragment.this, 306);
@@ -187,13 +193,17 @@ public class ConfirmedRideFragment extends Fragment implements ConfirmedRideAdap
     }
 
     @Override
-    public void viewConfirmedRider() {
-
+    public void viewConfirmedRider(String driverRideID) {
+        dialogFragment = new ShowConfirmedRiderDialog();
+        Bundle bundle = new Bundle();
+        bundle.putString("driver_ride_id", driverRideID);
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(fm, null);
     }
 
     @Override
     public void continueMyRoute(int position) {
-        startRouteActivity(confirmedRideObjectArrayList.get(position).getId());
+        startRouteActivity(confirmedRideObjectArrayList.get(position).getDriver_ride_id());
     }
 
     @Override
@@ -214,10 +224,11 @@ public class ConfirmedRideFragment extends Fragment implements ConfirmedRideAdap
     public void startRouteActivity(String driverRideId) {
         Intent intent = new Intent(getActivity(), StartRouteActivity.class);
         Bundle bundle = new Bundle();
+
         bundle.putString("driver_ride_id", driverRideId);
         intent.putExtras(bundle);
         startActivityForResult(intent, UPDATE_CONFIRMED_RIDE_REQUEST);
-
+        getActivity().finish();
     }
 
     @Override

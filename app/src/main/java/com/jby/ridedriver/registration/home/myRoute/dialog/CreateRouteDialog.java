@@ -21,6 +21,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -80,7 +81,8 @@ import java.util.concurrent.TimeoutException;
 import static android.app.Activity.RESULT_OK;
 
 public class CreateRouteDialog extends DialogFragment implements View.OnClickListener, AdapterView.OnItemSelectedListener,
-        InvalidTimeDialog.InvalidTimeDialogCallBack, NoteDialog.NoteDialogCallBack, View.OnTouchListener, CompoundButton.OnCheckedChangeListener{
+        InvalidTimeDialog.InvalidTimeDialogCallBack, NoteDialog.NoteDialogCallBack, View.OnTouchListener, CompoundButton.OnCheckedChangeListener,
+        RouteTitleDialog.RouteTitleDialogCallBack{
     View rootView;
     //    actionBar
     private SquareHeightLinearLayout actionBarMenuIcon, actionBarCloseIcon, actionBarLogout;
@@ -89,11 +91,11 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
     private ScrollView createRouteDialogScrollView;
     private LinearLayout createRouteDialogLabelAdvanceSettingLayout, createRouteDialogAdvanceSettingLayout;
     private LinearLayout createRouteDialogPickUpLayout, createRouteDialogDropOffLayout, createRouteDialogDateLayout;
-    private LinearLayout createRouteDialogTimeLayout, createRouteDialogNoteLayout;
+    private LinearLayout createRouteDialogTimeLayout, createRouteDialogNoteLayout, createRouteDialogRouteTileLayout;
 
     private TextView createRouteDialogPickUp, createRouteDialogDropOff, createRouteDialogDate, createRouteDialogTime;
     private TextView createRouteDialogPickUpDistance, createRouteDialogDropOffDistance, createRouteDialogLabelSeat;
-    private TextView createRouteDialogNote;
+    private TextView createRouteDialogNote, createRouteDialogRouteTitle;
 
     private BubbleSeekBar createRouteDialogPickUpSeekBar, createRouteDialogDropOffSeekBar;
     private Spinner createRouteDialogSeat;
@@ -121,6 +123,7 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
     private String date = "-";
     private String time = "-";
     private String note = "None";
+    private String title = "My Route";
 
     //  advance setting layout
     private boolean show = false;
@@ -175,12 +178,14 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
         createRouteDialogDateLayout = (LinearLayout) rootView.findViewById(R.id.create_route_dialog_date_layout);
         createRouteDialogTimeLayout = (LinearLayout) rootView.findViewById(R.id.create_route_dialog_time_layout);
         createRouteDialogNoteLayout = (LinearLayout) rootView.findViewById(R.id.create_route_dialog_note_layout);
+        createRouteDialogRouteTileLayout = rootView.findViewById(R.id.create_route_dialog_route_title_layout);
 
         createRouteDialogPickUp = (TextView) rootView.findViewById(R.id.create_route_dialog_pick_up);
         createRouteDialogDropOff = (TextView) rootView.findViewById(R.id.create_route_dialog_drop_off);
         createRouteDialogDate = (TextView) rootView.findViewById(R.id.create_route_dialog_date);
         createRouteDialogTime = (TextView) rootView.findViewById(R.id.create_route_dialog_time);
         createRouteDialogNote = (TextView) rootView.findViewById(R.id.create_route_dialog_note);
+        createRouteDialogRouteTitle = rootView.findViewById(R.id.create_route_dialog_route_title);
 
         createRouteDialogPickUpDistance = (TextView) rootView.findViewById(R.id.create_route_dialog_pick_up_distance);
         createRouteDialogDropOffDistance = (TextView) rootView.findViewById(R.id.create_route_dialog_drop_off_distance);
@@ -233,6 +238,7 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
         createRouteDialogDropOffLayout.setOnClickListener(this);
         createRouteDialogNoteLayout.setOnClickListener(this);
         createRouteDialogButton.setOnClickListener(this);
+        createRouteDialogRouteTileLayout.setOnClickListener(this);
         actionBarCloseIcon.setOnClickListener(this);
         createRouteDialogGender.setOnCheckedChangeListener(this);
 
@@ -263,41 +269,40 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
+        clickEffect(view)
+        ;
         switch (view.getId()) {
             case R.id.actionbar_close:
                 dismiss();
                 break;
             case R.id.create_route_dialog_label_advance_setting_layout:
-                clickEffect(createRouteDialogLabelAdvanceSettingLayout);
                 setAdvanceSetting();
                 break;
             case R.id.create_route_dialog_time:
-                clickEffect(createRouteDialogTimeLayout);
                 selectTimeDialog();
                 break;
             case R.id.create_route_dialog_date:
-                clickEffect(createRouteDialogDateLayout);
                 selectDateDialog();
                 break;
             case R.id.create_route_dialog_pick_up_layout:
                 if (!placePicker) {
-                    clickEffect(createRouteDialogPickUpLayout);
                     selectPoint(1);
                 }
                 break;
             case R.id.create_route_dialog_drop_off_layout:
                 if (!placePicker) {
-                    clickEffect(createRouteDialogDropOffLayout);
                     selectPoint(2);
                 }
                 break;
             case R.id.create_route_dialog_note_layout:
-                clickEffect(createRouteDialogNoteLayout);
                 openNote();
                 break;
             case R.id.create_route_dialog_button:
                 createRouteDialogProgressBar.setVisibility(View.VISIBLE);
                 checkingBeforeUpload();
+                break;
+            case R.id.create_route_dialog_route_title_layout:
+                openRoute();
                 break;
         }
     }
@@ -647,6 +652,7 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
             gender = 0;
     }
 
+
     //after received then call fetchAddress
     class AddressResultReceiver extends ResultReceiver {
         private AddressResultReceiver(Handler handler) {
@@ -705,6 +711,24 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
         dialogFragment.setArguments(bundle);
         dialogFragment.show(fm, "");
     }
+    /*-----------------------------------------------------route setting-------------------------------------*/
+    public void openRoute(){
+        dialogFragment = new RouteTitleDialog();
+        Bundle bundle = new Bundle();
+        String title = createRouteDialogRouteTitle.getText().toString();
+
+        if(!note.equals("Write your route title here..."))
+            bundle.putString("title", title);
+        dialogFragment.setTargetFragment(CreateRouteDialog.this, 301);
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(fm, "");
+    }
+
+    @Override
+    public void setRouteTitle(String title) {
+        this.title = title;
+        createRouteDialogRouteTitle.setText(title);
+    }
 
     /*----------------------------create route-------------------------------------------------*/
     private void checkingBeforeUpload(){
@@ -754,6 +778,7 @@ public class CreateRouteDialog extends DialogFragment implements View.OnClickLis
         apiDataObjectArrayList.add(new ApiDataObject("pick_up_distance", pick_up_distance));
         apiDataObjectArrayList.add(new ApiDataObject("drop_off_distance", drop_off_distance));
         apiDataObjectArrayList.add(new ApiDataObject("gender", para_gender));
+        apiDataObjectArrayList.add(new ApiDataObject("route_title", title));
 
         asyncTaskManager = new AsyncTaskManager(
                 getActivity(),

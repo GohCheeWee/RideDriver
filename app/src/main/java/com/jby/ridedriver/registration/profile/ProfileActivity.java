@@ -8,9 +8,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,8 @@ import java.util.concurrent.TimeoutException;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.jby.ridedriver.registration.home.HomeActivity.LOGOUT_REQUEST;
+import static com.jby.ridedriver.registration.shareObject.ApiManager.car_prefix;
+import static com.jby.ridedriver.registration.shareObject.ApiManager.profile_prefix;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener,
         LogOutDialog.LogOutDialogCallBack{
@@ -48,10 +53,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private EditText profileActivityMobilePrefix;
     private TextView profileActivityLabelUsername, profileActivityRating, profileActivityCompletedRide;
     private Button profileActivityEditButton;
+    // for adjust
+    private LinearLayout profileActivityParentLayout;
+    private RelativeLayout profileActivityPictureParentLayout;
 
-    //    path
-    private static String profile_prefix = "http://188.166.186.198/~cheewee/ride/frontend/driver/profile/driver_profile_picture/";
-    private static String car_prefix = "http://188.166.186.198/~cheewee/ride/frontend/driver/profile/driver_car/";
 
     //    async purpose
     AsyncTaskManager asyncTaskManager;
@@ -94,6 +99,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         profileActivityRating = (TextView) findViewById(R.id.activity_profile_rating);
 
         profileActivityEditButton = (Button)findViewById(R.id.activity_profile_edit_button);
+
+        profileActivityParentLayout = findViewById(R.id.activity_profile_parent_layout);
+        profileActivityPictureParentLayout = findViewById(R.id.activity_profile_picture_parent_layout);
+
         handler = new Handler();
         fm = getSupportFragmentManager();
     }
@@ -114,6 +123,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 getDriverInformation();
             }
         },200);
+        calcualateHeight();
 
     }
 
@@ -249,5 +259,27 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void logOut() {
         requestCode = LOGOUT_REQUEST;
         onBackPressed();
+    }
+
+    private void calcualateHeight(){
+        ViewTreeObserver viewTreeObserver = profileActivityParentLayout.getViewTreeObserver();
+        if (viewTreeObserver.isAlive()) {
+            viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+
+                    profileActivityParentLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    int parentLayoutHeight =  profileActivityParentLayout.getHeight();
+                    int parentLayoutWidth = profileActivityParentLayout.getWidth();
+
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams)profileActivityPictureParentLayout.getLayoutParams();
+                    layoutParams.height = parentLayoutHeight/3;
+                    layoutParams.width = parentLayoutWidth;
+
+                    profileActivityPictureParentLayout.setLayoutParams(layoutParams);
+
+                }
+            });
+        }
     }
 }

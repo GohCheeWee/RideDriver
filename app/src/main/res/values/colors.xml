@@ -15,4 +15,6 @@
     <color name="disable_color">#D4CFD4</color>
     <color name="background_white">#EEEEEE</color>
     <color name="photo_background">#E1EAF1</color>
+    <color name="tiffany_blue">#3ABCA7</color>
+    <color name="green">#228B22</color>
 </resources>

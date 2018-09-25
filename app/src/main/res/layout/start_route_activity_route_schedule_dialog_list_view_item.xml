@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:id="@+id/route_schedule_dialog_list_view_parent_layout"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/route_schedule_dialog_list_view_user_icon"
+        android:src="@drawable/fragment_my_route_user_icon"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/route_schedule_dialog_list_view_user_icon"
+        android:id="@+id/route_schedule_dialog_list_view_user_name"
+        android:padding="5dp"
+        android:layout_alignParentTop="true"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family_condensed"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Chee Wee" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/route_schedule_dialog_list_view_user_name"
+        android:id="@+id/route_schedule_dialog_list_view_user_address"
+        android:layout_toEndOf="@id/route_schedule_dialog_list_view_user_icon"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_centerInParent="true"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:fontFamily="@string/font_family_condensed"
+        android:text="29, jalan tasek 51, Bandar Seri Alam, 81750 Masai" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/route_schedule_dialog_list_view_user_address"
+        android:id="@+id/route_schedule_dialog_list_view_user_distance"
+        android:layout_toEndOf="@id/route_schedule_dialog_list_view_user_icon"
+        android:padding="5dp"
+        android:layout_alignParentEnd="true"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="0.9 KM"
+        android:gravity="end"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:fontFamily="@string/sans_serif_smallcaps"
+        android:textColor="@color/red" />
+
+</RelativeLayout>
+
+
+

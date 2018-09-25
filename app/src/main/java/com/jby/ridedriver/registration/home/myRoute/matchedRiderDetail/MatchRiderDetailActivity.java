@@ -133,6 +133,23 @@ public class MatchRiderDetailActivity extends AppCompatActivity implements Match
         dialogFragment.show(fm, "");
     }
 
+    private void updateAcceptToPending(int position) {
+        matchRiderDetailObjectArrayList.set(position, new MatchRiderDetailObject(
+                matchRiderDetailObjectArrayList.get(position).getName(),
+                matchRiderDetailObjectArrayList.get(position).getProfile_picture(),
+                matchRiderDetailObjectArrayList.get(position).getGender(),
+                matchRiderDetailObjectArrayList.get(position).getPickup(),
+                matchRiderDetailObjectArrayList.get(position).getDrop_off(),
+                matchRiderDetailObjectArrayList.get(position).getNote(),
+                matchRiderDetailObjectArrayList.get(position).getFare(),
+                matchRiderDetailObjectArrayList.get(position).getPayment_method(),
+                matchRiderDetailObjectArrayList.get(position).getUserId(),
+                matchRiderDetailObjectArrayList.get(position).getRouteID(),
+                "2"
+        ));
+        matchRiderDetailAdapter.notifyDataSetChanged();
+    }
+
     @Override
     public void viewRiderProfile(String riderID) {
         dialogFragment = new RiderProfileDialog();
@@ -176,18 +193,22 @@ public class MatchRiderDetailActivity extends AppCompatActivity implements Match
                 if (jsonObjectLoginResponse != null) {
                     if(jsonObjectLoginResponse.getString("status").equals("1")){
                         JSONArray jsonArray = jsonObjectLoginResponse.getJSONArray("value").getJSONObject(0).getJSONArray("matched_ride");
-                        matchRiderDetailObjectArrayList.add(new MatchRiderDetailObject(
-                                jsonArray.getJSONObject(0).getString("username"),
-                                jsonArray.getJSONObject(0).getString("profile_picture"),
-                                jsonArray.getJSONObject(0).getString("gender"),
-                                jsonArray.getJSONObject(0).getString("pick_up_address"),
-                                jsonArray.getJSONObject(0).getString("drop_off_address"),
-                                jsonArray.getJSONObject(0).getString("note"),
-                                jsonArray.getJSONObject(0).getString("fare"),
-                                jsonArray.getJSONObject(0).getString("payment_method"),
-                                jsonArray.getJSONObject(0).getString("user_id"),
-                                jsonArray.getJSONObject(0).getString("id")
-                        ));
+                        //if status 3 mean the ride already accepted by rider so avoid the accepted record from showing here!
+                        if(!jsonArray.getJSONObject(0).getString("status").equals("3")){
+                            matchRiderDetailObjectArrayList.add(new MatchRiderDetailObject(
+                                    jsonArray.getJSONObject(0).getString("username"),
+                                    jsonArray.getJSONObject(0).getString("profile_picture"),
+                                    jsonArray.getJSONObject(0).getString("gender"),
+                                    jsonArray.getJSONObject(0).getString("pick_up_address"),
+                                    jsonArray.getJSONObject(0).getString("drop_off_address"),
+                                    jsonArray.getJSONObject(0).getString("note"),
+                                    jsonArray.getJSONObject(0).getString("fare"),
+                                    jsonArray.getJSONObject(0).getString("payment_method"),
+                                    jsonArray.getJSONObject(0).getString("user_id"),
+                                    jsonArray.getJSONObject(0).getString("id"),
+                                    jsonArray.getJSONObject(0).getString("status")
+                            ));
+                        }
                     }
                 }
                 else {
@@ -208,9 +229,9 @@ public class MatchRiderDetailActivity extends AppCompatActivity implements Match
                 e.printStackTrace();
             }
         }
+
 //        if position == matchedRiderRouteId.size then close progress bar
         setUpView(position);
-        matchRiderDetailAdapter.notifyDataSetChanged();
     }
     /*---------------------------------------aceept rider purpopse-----------------------------------------------------------------------*/
 
@@ -239,7 +260,7 @@ public class MatchRiderDetailActivity extends AppCompatActivity implements Match
                 if (jsonObjectLoginResponse != null) {
                     if(jsonObjectLoginResponse.getString("status").equals("1")){
                         showSnackBar("Request Send!");
-                        updateViewAfterAccept(position);
+                        updateAcceptToPending(position);
                     }
                 }
                 else {
@@ -281,13 +302,13 @@ public class MatchRiderDetailActivity extends AppCompatActivity implements Match
             if(matchRiderDetailObjectArrayList.size() > 0){
                 matchRiderDetailNotFoundLayout.setVisibility(View.GONE);
                 matchRiderDetailSwipeRefreshLayout.setVisibility(View.VISIBLE);
-
             }
             else
             {
                 matchRiderDetailNotFoundLayout.setVisibility(View.VISIBLE);
                 matchRiderDetailSwipeRefreshLayout.setVisibility(View.GONE);
             }
+            matchRiderDetailAdapter.notifyDataSetChanged();
         }
     }
 
